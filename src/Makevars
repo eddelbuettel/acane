@@ -1,0 +1,8 @@
+PKG_CXXFLAGS = -I.
+
+OBJECTS = \
+	utilities.o \
+	RcppExports.o \
+	nanoarrow/nanoarrow.o
+
+$(SHLIB): $(OBJECTS)
