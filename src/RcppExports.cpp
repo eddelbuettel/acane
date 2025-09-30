@@ -41,11 +41,35 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+// array_xptr_set_schema
+void array_xptr_set_schema(SEXP array_xptr, SEXP schema_xptr);
+RcppExport SEXP _acane_array_xptr_set_schema(SEXP array_xptrSEXP, SEXP schema_xptrSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< SEXP >::type array_xptr(array_xptrSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type schema_xptr(schema_xptrSEXP);
+    array_xptr_set_schema(array_xptr, schema_xptr);
+    return R_NilValue;
+END_RCPP
+}
+// array_xptr_get_schema
+SEXP array_xptr_get_schema(SEXP array_xptr);
+RcppExport SEXP _acane_array_xptr_get_schema(SEXP array_xptrSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< SEXP >::type array_xptr(array_xptrSEXP);
+    rcpp_result_gen = Rcpp::wrap(array_xptr_get_schema(array_xptr));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_acane_create_struct_example", (DL_FUNC) &_acane_create_struct_example, 0},
     {"_acane_show_array", (DL_FUNC) &_acane_show_array, 1},
     {"_acane_show_schema", (DL_FUNC) &_acane_show_schema, 1},
+    {"_acane_array_xptr_set_schema", (DL_FUNC) &_acane_array_xptr_set_schema, 2},
+    {"_acane_array_xptr_get_schema", (DL_FUNC) &_acane_array_xptr_get_schema, 1},
     {NULL, NULL, 0}
 };
 

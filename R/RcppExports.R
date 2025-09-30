@@ -32,3 +32,13 @@ show_schema <- function(sxparr) {
     invisible(.Call(`_acane_show_schema`, sxparr))
 }
 
+#' @rdname show_array
+array_xptr_set_schema <- function(array_xptr, schema_xptr) {
+    invisible(.Call(`_acane_array_xptr_set_schema`, array_xptr, schema_xptr))
+}
+
+#' @rdname show_array
+array_xptr_get_schema <- function(array_xptr) {
+    .Call(`_acane_array_xptr_get_schema`, array_xptr)
+}
+

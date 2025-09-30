@@ -3,11 +3,17 @@
 \name{show_array}
 \alias{show_array}
 \alias{show_schema}
+\alias{array_xptr_set_schema}
+\alias{array_xptr_get_schema}
 \title{Display Arrow Structures Array or Schema}
 \usage{
 show_array(sxparr)
 
 show_schema(sxparr)
+
+array_xptr_set_schema(array_xptr, schema_xptr)
+
+array_xptr_get_schema(array_xptr)
 }
 \arguments{
 \item{sxparr}{An external pointer to an \sQuote{Arrow Array} also containing

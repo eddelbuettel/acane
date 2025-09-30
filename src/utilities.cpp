@@ -97,9 +97,17 @@ void show_schema(SEXP sxparr) {
 
 // Attaches a schema to an array external pointer. The nanoarrow R package
 // attempts to do this whenever possible to avoid misinterpreting arrays.
+//' @rdname show_array
+// [[Rcpp::export]]
 void array_xptr_set_schema(SEXP array_xptr, SEXP schema_xptr) {
     R_SetExternalPtrTag(array_xptr, schema_xptr);
 }
+//' @rdname show_array
+// [[Rcpp::export]]
+SEXP array_xptr_get_schema(SEXP array_xptr) {
+    return R_ExternalPtrTag(array_xptr);
+}
+
 
 // Simple wrapper alternative to the default macro used by nanoarrow
 inline void exitIfError(const ArrowErrorCode ec, const std::string& msg) {
