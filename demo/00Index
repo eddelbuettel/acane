@@ -1,0 +1,3 @@
+adbcpostgresql         Demo of nanoarrow object use from ADBC query
+duckdb                 Demo of interfacing duckdb via nanoarrow objects
+polars                 Demo of passing nanoarrow object to polars via both R or Python

@@ -11,5 +11,5 @@ BugReports: https://github.com/eddelbuettel/acane/issues
 License: GPL (>= 2)
 Imports: Rcpp (>= 1.1.0), nanoarrow
 LinkingTo: Rcpp, nanoarrow
-Suggests: tinytest
+Suggests: tinytest, DBI, adbcpostgresql, adbcdrivermanager, arrow, duckdb, dplyr, palmerpenguins, reticulate
 RoxygenNote: 6.0.1
