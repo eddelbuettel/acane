@@ -98,6 +98,8 @@ void show_schema(SEXP sxparr) {
 // Attaches a schema to an array external pointer. The nanoarrow R package
 // attempts to do this whenever possible to avoid misinterpreting arrays.
 //' @rdname show_array
+//' @param array_xptr A external pointer to an Arrow array data structure
+//' @param schema_xptr A external pointer to an Arrow schema data structure
 // [[Rcpp::export]]
 void array_xptr_set_schema(SEXP array_xptr, SEXP schema_xptr) {
     R_SetExternalPtrTag(array_xptr, schema_xptr);

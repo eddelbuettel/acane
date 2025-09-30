@@ -18,6 +18,10 @@ array_xptr_get_schema(array_xptr)
 \arguments{
 \item{sxparr}{An external pointer to an \sQuote{Arrow Array} also containing
 a pointer to the corresponding \sQuote{Arrow Schema} in its \sQuote{tag} slot}
+
+\item{array_xptr}{A external pointer to an Arrow array data structure}
+
+\item{schema_xptr}{A external pointer to an Arrow schema data structure}
 }
 \value{
 Nothing is returned, the functions are invoked for the side effect

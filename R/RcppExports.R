@@ -33,6 +33,8 @@ show_schema <- function(sxparr) {
 }
 
 #' @rdname show_array
+#' @param array_xptr A external pointer to an Arrow array data structure
+#' @param schema_xptr A external pointer to an Arrow schema data structure
 array_xptr_set_schema <- function(array_xptr, schema_xptr) {
     invisible(.Call(`_acane_array_xptr_set_schema`, array_xptr, schema_xptr))
 }
