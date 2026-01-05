@@ -11,18 +11,19 @@ void show_schema(const struct ArrowSchema* sch);
 
 
 //' @title create_struct_example
-//' @description Create a Simple \sQuote{struct} Object
+//' @description Create a Simple \sQuote{struct} Arrow Object
 //' @details A two-column \sQuote{struct} is created and returned, containing respectively an
 //' integer and a floating point column each with one missing value
 //' @return A external pointer object is returned containing a pointer to the Arrow array with
 //' a pointer to the schema tucked away in the \sQuote{tag} component as is common for
 //' \pkg{nanoarrow} objects
 //' @examples
-//' s <- create_struct_example()
-//' s                 # pretty-printed in full details thanks to 'nanoarrow' S3 methods
-//' as.data.frame(s)  # converted thanks to 'nanoarrow' S3 methods
+//' s <- create_struct_example()  # create example object
+//' s                             # pretty-printed thanks to 'nanoarrow' S3 methods
+//' as.data.frame(s)              # converted thanks to 'nanoarrow' S3 methods
 // [[Rcpp::export]]
 Rcpp::XPtr<ArrowArray> create_struct_example() {
+
     // First init a schema
     auto sxpsch = nanoarrow_schema_owning_xptr();      		// allocates and wraps as XP for export
     auto sch = nanoarrow_output_schema_from_xptr(sxpsch); 	// underlying arrow schema object
@@ -78,6 +79,9 @@ Rcpp::XPtr<ArrowArray> create_struct_example() {
 //' a pointer to the corresponding \sQuote{Arrow Schema} in its \sQuote{tag} slot
 //' @return Nothing is returned, the functions are invoked for the side effect
 //' of printing
+//' @examples
+//' s <- create_struct_example()  # create example object
+//' show_array(s)
 // [[Rcpp::export]]
 void show_array(SEXP sxparr) {
     auto arr = nanoarrow_array_from_xptr(sxparr);    // underlying arrow array object
@@ -85,6 +89,9 @@ void show_array(SEXP sxparr) {
 }
 
 //' @rdname show_array
+//' @examples
+//' s <- create_struct_example()  # create example object
+//' show_schema(s)
 // [[Rcpp::export]]
 void show_schema(SEXP sxparr) {
     auto sxpsch = R_ExternalPtrTag(sxparr); 		// schema xptr tucked in with array
@@ -96,7 +103,8 @@ void show_schema(SEXP sxparr) {
 // Helpers below
 
 // Attaches a schema to an array external pointer. The nanoarrow R package
-// attempts to do this whenever possible to avoid misinterpreting arrays.
+// attempts to do this whenever possible to avoid misinterpreting arrays,
+// and this function re-implements it as a separate helper.
 //' @rdname show_array
 //' @param array_xptr A external pointer to an Arrow array data structure
 //' @param schema_xptr A external pointer to an Arrow schema data structure

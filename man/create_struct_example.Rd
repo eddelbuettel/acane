@@ -12,7 +12,7 @@ a pointer to the schema tucked away in the \sQuote{tag} component as is common f
 \pkg{nanoarrow} objects
 }
 \description{
-Create a Simple \sQuote{struct} Object
+Create a Simple \sQuote{struct} Arrow Object
 }
 \details{
 A two-column \sQuote{struct} is created and returned, containing respectively an

@@ -2,7 +2,7 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 #' @title create_struct_example
-#' @description Create a Simple \sQuote{struct} Object
+#' @description Create a Simple \sQuote{struct} Arrow Object
 #' @details A two-column \sQuote{struct} is created and returned, containing respectively an
 #' integer and a floating point column each with one missing value
 #' @return A external pointer object is returned containing a pointer to the Arrow array with
