@@ -1,6 +1,8 @@
 #!/usr/bin/env Rscript
 
 suppressMessages({
+    ## reticulate uses ~/.cache/R/reticulate/uv
+    ## with the virtualenv in ~/.virtualenv/r-reticulate
     Sys.unsetenv("RETICULATE_PYTHON")
     library(reticulate)
     library(polars)
@@ -54,14 +56,13 @@ viaPython <- function() {
 
     ## create a record batch
     df <- pa$record_batch(na2)
-    ## which we can turn into a table
-    ## which can be exported to pandas
-    print(pa$table(df)$to_pandas())
+    ## which we can turn into a table, and that to pandas
+    pa$table(df)$to_pandas()
 
     invisible(NULL)
 }
 
-#print(narb)
+#narb
 
-#viaR()
+#viaR()  # works
 viaPython()
