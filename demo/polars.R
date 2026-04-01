@@ -13,7 +13,7 @@ narb <- acane::create_struct_example()
 pdf <- polars::as_polars_df(narb)
 
 
-viaR <- function() {
+viaR <- function(narb) {
     pdf <- polars::as_polars_df(narb)
     print(pdf)
 
@@ -38,7 +38,7 @@ capsule_prep <- function(na) {
     out
 }
 
-viaPython <- function() {
+viaPython <- function(narb) {
     #py_install("pyarrow")
 
     py_require(c("polars", "pandas", "pyarrow"))
@@ -64,5 +64,5 @@ viaPython <- function() {
 
 #narb
 
-#viaR()  # works
-viaPython()
+viaR(narb)      # works
+viaPython(narb) # also works
